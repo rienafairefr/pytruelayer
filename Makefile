@@ -1,16 +1,12 @@
 .PHONY: clean
 
 VERSION ?= $(shell pipenv run python -c "from setuptools_scm import get_version;print(get_version())")
-OPENAPIGEN_VERSION ?= v4.2.3
 
 test:
 	pipenv run py.test tests
 
 clean:
 	rm -rf api
-	rm -f openapi.yaml
-	rm -f openapi_*.yaml
-	rm -f swagger_*.json
 
 docker_image: $(wildcard generator/**/*) $(wildcard generator/*)
 	docker build -t custom-codegen generator
