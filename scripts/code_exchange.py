@@ -1,5 +1,4 @@
 import json
-import sys
 
 from truelayer.auth.configuration import Configuration
 from truelayer.auth.api_client import ApiClient

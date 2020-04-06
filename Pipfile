@@ -10,6 +10,7 @@ pluggy = ">=0.3.1"
 py = ">=1.4.31"
 randomize = ">=0.13"
 pytest = "*"
+pytest-cov = "*"
 
 [dev-packages]
 pytruelayer = {editable = true,path = "./api"}
