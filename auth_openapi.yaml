@@ -46,6 +46,7 @@ components:
 paths:
   /connect/token:
     post:
+      operationId: exchangeCode
       responses:
         "200":
           description: "Get Token Response"
