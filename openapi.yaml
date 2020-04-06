@@ -1,0 +1,1053 @@
+openapi: 3.0.1
+info:
+  contact:
+    name: TrueLayer.com
+    url: https://truelayer.com
+  title: TrueLayer Resource API
+  version: v1.0
+  x-applicationinfo:
+    x-API-Description: TrueLayer allows financial applications to connect securely
+      with their customer’s bank data. TrueLayer provides a unified interface between
+      multiple financial institutions and third party applications over a common RESTful
+      API.
+    x-API-Documentation-URL: http://docs.truelayer.com/#introduction
+    x-API-Name: Resource API
+    x-App-Description: "Simple bank APIs.  Build financial apps that connect to bank\
+      \ data, verify accounts, \nand access transactions in real-time."
+    x-App-Logo: https://images.aapi.io/TrueLayer_truelayercom
+    x-App-Name: truelayer.com
+    x-App-URL: https://truelayer.com/
+    x-Category: ""
+    x-Company: TrueLayer
+    x-Company-Github: https://github.com/TrueLayer
+    x-Orig-Desc-Format: JSON
+    x-Orig-Desc-Type: Swagger 2.0
+    x-Orig-Desc-Url: https://api.truelayer.com/swagger/v1.0/swagger.json
+    x-additionalHostNames: ""
+paths:
+  /data/v1/accounts:
+    get:
+      deprecated: false
+      operationId: DataV1AccountsGet
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResponseAccount'
+          description: Success
+      security:
+      - oauth2:
+        - ""
+      tags:
+      - Data
+  /data/v1/accounts/{account_id}:
+    get:
+      deprecated: false
+      operationId: DataV1AccountsByAccount_idGet
+      parameters:
+      - in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResponseAccount'
+          description: Success
+      security:
+      - oauth2:
+        - ""
+      tags:
+      - Data
+  /data/v1/accounts/{account_id}/balance:
+    get:
+      deprecated: false
+      operationId: DataV1AccountsByAccount_idBalanceGet
+      parameters:
+      - in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResponseBalance'
+          description: Success
+      security:
+      - oauth2:
+        - ""
+      tags:
+      - Data
+  /data/v1/accounts/{account_id}/transactions:
+    get:
+      deprecated: false
+      operationId: DataV1AccountsByAccount_idTransactionsGet
+      parameters:
+      - in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: from
+        schema:
+          format: date-time
+          type: string
+      - in: query
+        name: to
+        schema:
+          format: date-time
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResponseTransaction'
+          description: Success
+      security:
+      - oauth2:
+        - ""
+      tags:
+      - Data
+  /data/v1/cards:
+    get:
+      deprecated: false
+      operationId: DataV1CardsGet
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResponseCard'
+          description: Success
+      security:
+      - oauth2:
+        - ""
+      tags:
+      - Data
+  /data/v1/cards/{account_id}:
+    get:
+      deprecated: false
+      operationId: DataV1CardsByAccount_idGet
+      parameters:
+      - in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResponseCard'
+          description: Success
+      security:
+      - oauth2:
+        - ""
+      tags:
+      - Data
+  /data/v1/cards/{account_id}/balance:
+    get:
+      deprecated: false
+      operationId: DataV1CardsByAccount_idBalanceGet
+      parameters:
+      - in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResponseCardBalance'
+          description: Success
+      security:
+      - oauth2:
+        - ""
+      tags:
+      - Data
+  /data/v1/cards/{account_id}/transactions:
+    get:
+      deprecated: false
+      operationId: DataV1CardsByAccount_idTransactionsGet
+      parameters:
+      - in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: from
+        schema:
+          format: date-time
+          type: string
+      - in: query
+        name: to
+        schema:
+          format: date-time
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResponseCardTransaction'
+          description: Success
+      security:
+      - oauth2:
+        - ""
+      tags:
+      - Data
+  /data/v1/info:
+    get:
+      deprecated: false
+      operationId: DataV1InfoGet
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResponseInfo'
+          description: Success
+      security:
+      - oauth2:
+        - ""
+      tags:
+      - Data
+  /data/v1/me:
+    get:
+      deprecated: false
+      operationId: DataV1MeGet
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResponseMe'
+          description: Success
+      tags:
+      - Data
+  /data/v1/results/{task_id}:
+    get:
+      deprecated: false
+      operationId: DataV1ResultsByTask_idGet
+      parameters:
+      - in: path
+        name: task_id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CachedAPIResponseObject'
+          description: Success
+      security:
+      - oauth2:
+        - ""
+      tags:
+      - Data
+  /test:
+    get:
+      deprecated: false
+      operationId: TestGet
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResponseTestResult'
+          description: Success
+      tags:
+      - Test
+components:
+  schemas:
+    APIResponseAccount:
+      example:
+        task_id: task_id
+        results:
+        - account_number:
+            number: number
+            swift_bic: swift_bic
+            iban: iban
+            sort_code: sort_code
+          account_type: account_type
+          account_id: account_id
+          update_timestamp: 2000-01-23T04:56:07.000+00:00
+          provider:
+            logo_uri: logo_uri
+            provider_id: provider_id
+            display_name: display_name
+          description: description
+          currency: currency
+          display_name: display_name
+        - account_number:
+            number: number
+            swift_bic: swift_bic
+            iban: iban
+            sort_code: sort_code
+          account_type: account_type
+          account_id: account_id
+          update_timestamp: 2000-01-23T04:56:07.000+00:00
+          provider:
+            logo_uri: logo_uri
+            provider_id: provider_id
+            display_name: display_name
+          description: description
+          currency: currency
+          display_name: display_name
+        results_uri: results_uri
+        status: Queued
+      properties:
+        results:
+          items:
+            $ref: '#/components/schemas/Account'
+          type: array
+        results_uri:
+          type: string
+        status:
+          enum:
+          - Queued
+          - Running
+          - Succeeded
+          - Failed
+          type: string
+        task_id:
+          type: string
+      type: object
+    APIResponseBalance:
+      example:
+        task_id: task_id
+        results:
+        - current: 6.027456183070403
+          update_timestamp: 2000-01-23T04:56:07.000+00:00
+          available: 0.8008281904610115
+          currency: currency
+        - current: 6.027456183070403
+          update_timestamp: 2000-01-23T04:56:07.000+00:00
+          available: 0.8008281904610115
+          currency: currency
+        results_uri: results_uri
+        status: Queued
+      properties:
+        results:
+          items:
+            $ref: '#/components/schemas/Balance'
+          type: array
+        results_uri:
+          type: string
+        status:
+          enum:
+          - Queued
+          - Running
+          - Succeeded
+          - Failed
+          type: string
+        task_id:
+          type: string
+      type: object
+    APIResponseCardBalance:
+      example:
+        task_id: task_id
+        results:
+        - current: 1.4658129805029452
+          update_timestamp: 2000-01-23T04:56:07.000+00:00
+          available: 0.8008281904610115
+          credit_limit: 6.027456183070403
+          payment_due_date: 2000-01-23T04:56:07.000+00:00
+          currency: currency
+          last_statement_date: 2000-01-23T04:56:07.000+00:00
+          last_statement_balance: 5.962133916683182
+          payment_due: 5.637376656633329
+        - current: 1.4658129805029452
+          update_timestamp: 2000-01-23T04:56:07.000+00:00
+          available: 0.8008281904610115
+          credit_limit: 6.027456183070403
+          payment_due_date: 2000-01-23T04:56:07.000+00:00
+          currency: currency
+          last_statement_date: 2000-01-23T04:56:07.000+00:00
+          last_statement_balance: 5.962133916683182
+          payment_due: 5.637376656633329
+        results_uri: results_uri
+        status: Queued
+      properties:
+        results:
+          items:
+            $ref: '#/components/schemas/CardBalance'
+          type: array
+        results_uri:
+          type: string
+        status:
+          enum:
+          - Queued
+          - Running
+          - Succeeded
+          - Failed
+          type: string
+        task_id:
+          type: string
+      type: object
+    APIResponseCardTransaction:
+      example:
+        task_id: task_id
+        results:
+        - transaction_id: transaction_id
+          amount: 0.8008281904610115
+          balance:
+            current: 6.027456183070403
+            update_timestamp: 2000-01-23T04:56:07.000+00:00
+            available: 0.8008281904610115
+            currency: currency
+          meta:
+            key: meta
+          description: description
+          currency: currency
+          transaction_type: transaction_type
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - transaction_id: transaction_id
+          amount: 0.8008281904610115
+          balance:
+            current: 6.027456183070403
+            update_timestamp: 2000-01-23T04:56:07.000+00:00
+            available: 0.8008281904610115
+            currency: currency
+          meta:
+            key: meta
+          description: description
+          currency: currency
+          transaction_type: transaction_type
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        results_uri: results_uri
+        status: Queued
+      properties:
+        results:
+          items:
+            $ref: '#/components/schemas/CardTransaction'
+          type: array
+        results_uri:
+          type: string
+        status:
+          enum:
+          - Queued
+          - Running
+          - Succeeded
+          - Failed
+          type: string
+        task_id:
+          type: string
+      type: object
+    APIResponseCard:
+      example:
+        task_id: task_id
+        results:
+        - account_id: account_id
+          card_network: card_network
+          update_timestamp: 2000-01-23T04:56:07.000+00:00
+          provider:
+            logo_uri: logo_uri
+            provider_id: provider_id
+            display_name: display_name
+          valid_to: valid_to
+          valid_from: valid_from
+          currency: currency
+          card_type: card_type
+          display_name: display_name
+          partial_card_number: partial_card_number
+          name_on_card: name_on_card
+        - account_id: account_id
+          card_network: card_network
+          update_timestamp: 2000-01-23T04:56:07.000+00:00
+          provider:
+            logo_uri: logo_uri
+            provider_id: provider_id
+            display_name: display_name
+          valid_to: valid_to
+          valid_from: valid_from
+          currency: currency
+          card_type: card_type
+          display_name: display_name
+          partial_card_number: partial_card_number
+          name_on_card: name_on_card
+        results_uri: results_uri
+        status: Queued
+      properties:
+        results:
+          items:
+            $ref: '#/components/schemas/Card'
+          type: array
+        results_uri:
+          type: string
+        status:
+          enum:
+          - Queued
+          - Running
+          - Succeeded
+          - Failed
+          type: string
+        task_id:
+          type: string
+      type: object
+    APIResponseInfo:
+      example:
+        task_id: task_id
+        results:
+        - emails:
+          - emails
+          - emails
+          addresses:
+          - zip: zip
+            country: country
+            address: address
+            city: city
+            state: state
+          - zip: zip
+            country: country
+            address: address
+            city: city
+            state: state
+          full_name: full_name
+          update_timestamp: 2000-01-23T04:56:07.000+00:00
+          date_of_birth: 2000-01-23T04:56:07.000+00:00
+          phones:
+          - phones
+          - phones
+        - emails:
+          - emails
+          - emails
+          addresses:
+          - zip: zip
+            country: country
+            address: address
+            city: city
+            state: state
+          - zip: zip
+            country: country
+            address: address
+            city: city
+            state: state
+          full_name: full_name
+          update_timestamp: 2000-01-23T04:56:07.000+00:00
+          date_of_birth: 2000-01-23T04:56:07.000+00:00
+          phones:
+          - phones
+          - phones
+        results_uri: results_uri
+        status: Queued
+      properties:
+        results:
+          items:
+            $ref: '#/components/schemas/Info'
+          type: array
+        results_uri:
+          type: string
+        status:
+          enum:
+          - Queued
+          - Running
+          - Succeeded
+          - Failed
+          type: string
+        task_id:
+          type: string
+      type: object
+    APIResponseMe:
+      example:
+        task_id: task_id
+        results:
+        - credentials_id: credentials_id
+          provider:
+            logo_uri: logo_uri
+            provider_id: provider_id
+            display_name: display_name
+          provider_id: provider_id
+          client_id: client_id
+        - credentials_id: credentials_id
+          provider:
+            logo_uri: logo_uri
+            provider_id: provider_id
+            display_name: display_name
+          provider_id: provider_id
+          client_id: client_id
+        results_uri: results_uri
+        status: Queued
+      properties:
+        results:
+          items:
+            $ref: '#/components/schemas/Me'
+          type: array
+        results_uri:
+          type: string
+        status:
+          enum:
+          - Queued
+          - Running
+          - Succeeded
+          - Failed
+          type: string
+        task_id:
+          type: string
+      type: object
+    APIResponseTestResult:
+      example:
+        task_id: task_id
+        results:
+        - ok: true
+        - ok: true
+        results_uri: results_uri
+        status: Queued
+      properties:
+        results:
+          items:
+            $ref: '#/components/schemas/TestResult'
+          type: array
+        results_uri:
+          type: string
+        status:
+          enum:
+          - Queued
+          - Running
+          - Succeeded
+          - Failed
+          type: string
+        task_id:
+          type: string
+      type: object
+    APIResponseTransaction:
+      example:
+        task_id: task_id
+        results:
+        - transaction_id: transaction_id
+          amount: 0.8008281904610115
+          balance:
+            current: 6.027456183070403
+            update_timestamp: 2000-01-23T04:56:07.000+00:00
+            available: 0.8008281904610115
+            currency: currency
+          meta:
+            key: meta
+          description: description
+          currency: currency
+          transaction_type: transaction_type
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - transaction_id: transaction_id
+          amount: 0.8008281904610115
+          balance:
+            current: 6.027456183070403
+            update_timestamp: 2000-01-23T04:56:07.000+00:00
+            available: 0.8008281904610115
+            currency: currency
+          meta:
+            key: meta
+          description: description
+          currency: currency
+          transaction_type: transaction_type
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        results_uri: results_uri
+        status: Queued
+      properties:
+        results:
+          items:
+            $ref: '#/components/schemas/Transaction'
+          type: array
+        results_uri:
+          type: string
+        status:
+          enum:
+          - Queued
+          - Running
+          - Succeeded
+          - Failed
+          type: string
+        task_id:
+          type: string
+      type: object
+    Account:
+      example:
+        account_number:
+          number: number
+          swift_bic: swift_bic
+          iban: iban
+          sort_code: sort_code
+        account_type: account_type
+        account_id: account_id
+        update_timestamp: 2000-01-23T04:56:07.000+00:00
+        provider:
+          logo_uri: logo_uri
+          provider_id: provider_id
+          display_name: display_name
+        description: description
+        currency: currency
+        display_name: display_name
+      properties:
+        account_id:
+          type: string
+        account_number:
+          $ref: '#/components/schemas/AccountNumber'
+        account_type:
+          type: string
+        currency:
+          type: string
+        description:
+          type: string
+        display_name:
+          type: string
+        provider:
+          $ref: '#/components/schemas/ProviderInfo'
+        update_timestamp:
+          format: date-time
+          type: string
+      type: object
+    AccountNumber:
+      example:
+        number: number
+        swift_bic: swift_bic
+        iban: iban
+        sort_code: sort_code
+      properties:
+        iban:
+          type: string
+        number:
+          type: string
+        sort_code:
+          type: string
+        swift_bic:
+          type: string
+      type: object
+    AddressInfo:
+      example:
+        zip: zip
+        country: country
+        address: address
+        city: city
+        state: state
+      properties:
+        address:
+          type: string
+        city:
+          type: string
+        country:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+      type: object
+    Balance:
+      example:
+        current: 6.027456183070403
+        update_timestamp: 2000-01-23T04:56:07.000+00:00
+        available: 0.8008281904610115
+        currency: currency
+      properties:
+        available:
+          format: double
+          type: number
+        currency:
+          type: string
+        current:
+          format: double
+          type: number
+        update_timestamp:
+          format: date-time
+          type: string
+      type: object
+    CachedAPIResponseObject:
+      example:
+        error_details:
+          key: '{}'
+        error_description: error_description
+        task_id: task_id
+        error: error
+        results:
+        - '{}'
+        - '{}'
+        results_uri: results_uri
+        status: Queued
+      properties:
+        error:
+          type: string
+        error_description:
+          type: string
+        error_details:
+          additionalProperties:
+            properties: {}
+            type: object
+          type: object
+        results:
+          items:
+            properties: {}
+            type: object
+          type: array
+        results_uri:
+          type: string
+        status:
+          enum:
+          - Queued
+          - Running
+          - Succeeded
+          - Failed
+          type: string
+        task_id:
+          type: string
+      type: object
+    Card:
+      example:
+        account_id: account_id
+        card_network: card_network
+        update_timestamp: 2000-01-23T04:56:07.000+00:00
+        provider:
+          logo_uri: logo_uri
+          provider_id: provider_id
+          display_name: display_name
+        valid_to: valid_to
+        valid_from: valid_from
+        currency: currency
+        card_type: card_type
+        display_name: display_name
+        partial_card_number: partial_card_number
+        name_on_card: name_on_card
+      properties:
+        account_id:
+          type: string
+        card_network:
+          type: string
+        card_type:
+          type: string
+        currency:
+          type: string
+        display_name:
+          type: string
+        name_on_card:
+          type: string
+        partial_card_number:
+          type: string
+        provider:
+          $ref: '#/components/schemas/ProviderInfo'
+        update_timestamp:
+          format: date-time
+          type: string
+        valid_from:
+          type: string
+        valid_to:
+          type: string
+      type: object
+    CardBalance:
+      example:
+        current: 1.4658129805029452
+        update_timestamp: 2000-01-23T04:56:07.000+00:00
+        available: 0.8008281904610115
+        credit_limit: 6.027456183070403
+        payment_due_date: 2000-01-23T04:56:07.000+00:00
+        currency: currency
+        last_statement_date: 2000-01-23T04:56:07.000+00:00
+        last_statement_balance: 5.962133916683182
+        payment_due: 5.637376656633329
+      properties:
+        available:
+          format: double
+          type: number
+        credit_limit:
+          format: double
+          type: number
+        currency:
+          type: string
+        current:
+          format: double
+          type: number
+        last_statement_balance:
+          format: double
+          type: number
+        last_statement_date:
+          format: date-time
+          type: string
+        payment_due:
+          format: double
+          type: number
+        payment_due_date:
+          format: date-time
+          type: string
+        update_timestamp:
+          format: date-time
+          type: string
+      type: object
+    CardTransaction:
+      example:
+        transaction_id: transaction_id
+        amount: 0.8008281904610115
+        balance:
+          current: 6.027456183070403
+          update_timestamp: 2000-01-23T04:56:07.000+00:00
+          available: 0.8008281904610115
+          currency: currency
+        meta:
+          key: meta
+        description: description
+        currency: currency
+        transaction_type: transaction_type
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        amount:
+          format: double
+          type: number
+        balance:
+          $ref: '#/components/schemas/Balance'
+        currency:
+          type: string
+        description:
+          type: string
+        meta:
+          additionalProperties:
+            type: string
+          type: object
+        timestamp:
+          format: date-time
+          type: string
+        transaction_id:
+          type: string
+        transaction_type:
+          type: string
+      type: object
+    Info:
+      example:
+        emails:
+        - emails
+        - emails
+        addresses:
+        - zip: zip
+          country: country
+          address: address
+          city: city
+          state: state
+        - zip: zip
+          country: country
+          address: address
+          city: city
+          state: state
+        full_name: full_name
+        update_timestamp: 2000-01-23T04:56:07.000+00:00
+        date_of_birth: 2000-01-23T04:56:07.000+00:00
+        phones:
+        - phones
+        - phones
+      properties:
+        addresses:
+          items:
+            $ref: '#/components/schemas/AddressInfo'
+          type: array
+        date_of_birth:
+          format: date-time
+          type: string
+        emails:
+          items:
+            type: string
+          type: array
+        full_name:
+          type: string
+        phones:
+          items:
+            type: string
+          type: array
+        update_timestamp:
+          format: date-time
+          type: string
+      type: object
+    Me:
+      example:
+        credentials_id: credentials_id
+        provider:
+          logo_uri: logo_uri
+          provider_id: provider_id
+          display_name: display_name
+        provider_id: provider_id
+        client_id: client_id
+      properties:
+        client_id:
+          type: string
+        credentials_id:
+          type: string
+        provider:
+          $ref: '#/components/schemas/ProviderInfo'
+        provider_id:
+          type: string
+      type: object
+    ProviderInfo:
+      example:
+        logo_uri: logo_uri
+        provider_id: provider_id
+        display_name: display_name
+      properties:
+        display_name:
+          type: string
+        logo_uri:
+          type: string
+        provider_id:
+          type: string
+      type: object
+    TestResult:
+      example:
+        ok: true
+      properties:
+        ok:
+          type: boolean
+      type: object
+    Transaction:
+      example:
+        transaction_id: transaction_id
+        amount: 0.8008281904610115
+        balance:
+          current: 6.027456183070403
+          update_timestamp: 2000-01-23T04:56:07.000+00:00
+          available: 0.8008281904610115
+          currency: currency
+        meta:
+          key: meta
+        description: description
+        currency: currency
+        transaction_type: transaction_type
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        amount:
+          format: double
+          type: number
+        balance:
+          $ref: '#/components/schemas/Balance'
+        currency:
+          type: string
+        description:
+          type: string
+        meta:
+          additionalProperties:
+            type: string
+          type: object
+        timestamp:
+          format: date-time
+          type: string
+        transaction_id:
+          type: string
+        transaction_type:
+          type: string
+      type: object
+  securitySchemes:
+    oauth2:
+      flows:
+        implicit:
+          authorizationUrl: https://auth.truelayer.com
+          scopes:
+            accounts: Read access to accounts numbers
+            balance: Read access to balance
+            info: Read access to personal information
+            transactions: Read access to account transactions
+      type: oauth2

@@ -1,0 +1,57 @@
+{{#isContainer}}
+    {{#isListContainer}}
+marshmallow.fields.List({{#items}}{{>schema_partial_type}}{{/items}},{{>schema_partial_type_parameters}})
+    {{/isListContainer}}
+    {{#isMapContainer}}
+    {{/isMapContainer}}
+{{/isContainer}}
+{{^isContainer}}
+{{#isPrimitiveType}}
+    {{#isNumber}}
+marshmallow.fields.Number({{>schema_partial_type_parameters}})
+    {{/isNumber}}
+    {{^isNumber}}
+    {{/isNumber}}
+    {{#isInteger}}
+marshmallow.fields.Integer({{>schema_partial_type_parameters}})
+    {{/isInteger}}
+    {{^isInteger}}
+    {{/isInteger}}
+    {{#isFloat}}
+marshmallow.fields.Float({{>schema_partial_type_parameters}})
+    {{/isFloat}}
+    {{^isFloat}}
+    {{/isFloat}}
+    {{#isString}}
+marshmallow.fields.String({{>schema_partial_type_parameters}})
+    {{/isString}}
+    {{^isString}}
+    {{/isString}}
+    {{#isBoolean}}
+marshmallow.fields.Boolean({{>schema_partial_type_parameters}})
+    {{/isBoolean}}
+    {{^isBoolean}}
+    {{/isBoolean}}
+    {{#isDate}}
+budgea.fields.Date({{>schema_partial_type_parameters}})
+    {{/isDate}}
+    {{^isDate}}
+    {{/isDate}}
+    {{#isDateTime}}
+budgea.fields.DateTime({{>schema_partial_type_parameters}})
+    {{/isDateTime}}
+    {{^isDateTime}}
+    {{/isDateTime}}
+{{/isPrimitiveType}}
+{{^isPrimitiveType}}
+    {{#isFreeFormObject}}
+marshmallow.fields.Dict({{>schema_partial_type_parameters}})
+    {{/isFreeFormObject}}
+    {{#isModel}}
+budgea.fields.Nested('{{dataType}}')('{{dataType}}Schema', {{>schema_partial_type_parameters}})
+    {{/isModel}}
+    {{#isSelfReference}}
+budgea.fields.{{dataType}}Nested('self', {{>schema_partial_type_parameters}})
+    {{/isSelfReference}}
+{{/isPrimitiveType}}
+{{/isContainer}}
