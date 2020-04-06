@@ -38,7 +38,7 @@ components:
         refresh_token:
           type: string
 paths:
-  "/connect/token":
+  /connect/token:
     post:
       responses:
         "200":
