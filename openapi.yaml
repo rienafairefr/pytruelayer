@@ -24,8 +24,11 @@ info:
     x-Orig-Desc-Type: Swagger 2.0
     x-Orig-Desc-Url: https://api.truelayer.com/swagger/v1.0/swagger.json
     x-additionalHostNames: ""
+servers:
+  - description: Production Server
+    url: https://api.truelayer.com/data/v1
 paths:
-  /data/v1/accounts:
+  /accounts:
     get:
       deprecated: false
       operationId: DataV1AccountsGet
@@ -37,11 +40,10 @@ paths:
                 $ref: '#/components/schemas/APIResponseAccount'
           description: Success
       security:
-      - oauth2:
-        - ""
+      - oauth2: []
       tags:
       - Data
-  /data/v1/accounts/{account_id}:
+  /accounts/{account_id}:
     get:
       deprecated: false
       operationId: DataV1AccountsByAccount_idGet
@@ -59,11 +61,10 @@ paths:
                 $ref: '#/components/schemas/APIResponseAccount'
           description: Success
       security:
-      - oauth2:
-        - ""
+      - oauth2: []
       tags:
       - Data
-  /data/v1/accounts/{account_id}/balance:
+  /accounts/{account_id}/balance:
     get:
       deprecated: false
       operationId: DataV1AccountsByAccount_idBalanceGet
@@ -81,11 +82,10 @@ paths:
                 $ref: '#/components/schemas/APIResponseBalance'
           description: Success
       security:
-      - oauth2:
-        - ""
+      - oauth2: []
       tags:
       - Data
-  /data/v1/accounts/{account_id}/transactions:
+  /accounts/{account_id}/transactions:
     get:
       deprecated: false
       operationId: DataV1AccountsByAccount_idTransactionsGet
@@ -113,11 +113,10 @@ paths:
                 $ref: '#/components/schemas/APIResponseTransaction'
           description: Success
       security:
-      - oauth2:
-        - ""
+      - oauth2: []
       tags:
       - Data
-  /data/v1/cards:
+  /cards:
     get:
       deprecated: false
       operationId: DataV1CardsGet
@@ -129,11 +128,10 @@ paths:
                 $ref: '#/components/schemas/APIResponseCard'
           description: Success
       security:
-      - oauth2:
-        - ""
+      - oauth2: []
       tags:
       - Data
-  /data/v1/cards/{account_id}:
+  /cards/{account_id}:
     get:
       deprecated: false
       operationId: DataV1CardsByAccount_idGet
@@ -151,11 +149,10 @@ paths:
                 $ref: '#/components/schemas/APIResponseCard'
           description: Success
       security:
-      - oauth2:
-        - ""
+      - oauth2: []
       tags:
       - Data
-  /data/v1/cards/{account_id}/balance:
+  /cards/{account_id}/balance:
     get:
       deprecated: false
       operationId: DataV1CardsByAccount_idBalanceGet
@@ -173,11 +170,10 @@ paths:
                 $ref: '#/components/schemas/APIResponseCardBalance'
           description: Success
       security:
-      - oauth2:
-        - ""
+      - oauth2: []
       tags:
       - Data
-  /data/v1/cards/{account_id}/transactions:
+  /cards/{account_id}/transactions:
     get:
       deprecated: false
       operationId: DataV1CardsByAccount_idTransactionsGet
@@ -205,11 +201,10 @@ paths:
                 $ref: '#/components/schemas/APIResponseCardTransaction'
           description: Success
       security:
-      - oauth2:
-        - ""
+      - oauth2: []
       tags:
       - Data
-  /data/v1/info:
+  /info:
     get:
       deprecated: false
       operationId: DataV1InfoGet
@@ -221,11 +216,10 @@ paths:
                 $ref: '#/components/schemas/APIResponseInfo'
           description: Success
       security:
-      - oauth2:
-        - ""
+      - oauth2: []
       tags:
       - Data
-  /data/v1/me:
+  /me:
     get:
       deprecated: false
       operationId: DataV1MeGet
@@ -238,7 +232,7 @@ paths:
           description: Success
       tags:
       - Data
-  /data/v1/results/{task_id}:
+  /results/{task_id}:
     get:
       deprecated: false
       operationId: DataV1ResultsByTask_idGet
@@ -256,8 +250,7 @@ paths:
                 $ref: '#/components/schemas/CachedAPIResponseObject'
           description: Success
       security:
-      - oauth2:
-        - ""
+      - oauth2: []
       tags:
       - Data
   /test:
