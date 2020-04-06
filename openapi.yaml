@@ -746,12 +746,12 @@ components:
         currency: currency
       properties:
         available:
-          format: double
+          format: float
           type: number
         currency:
           type: string
         current:
-          format: double
+          format: float
           type: number
         update_timestamp:
           format: date-time
@@ -850,24 +850,24 @@ components:
         payment_due: 5.637376656633329
       properties:
         available:
-          format: double
+          format: float
           type: number
         credit_limit:
-          format: double
+          format: float
           type: number
         currency:
           type: string
         current:
-          format: double
+          format: float
           type: number
         last_statement_balance:
-          format: double
+          format: float
           type: number
         last_statement_date:
           format: date-time
           type: string
         payment_due:
-          format: double
+          format: float
           type: number
         payment_due_date:
           format: date-time
@@ -893,7 +893,7 @@ components:
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         amount:
-          format: double
+          format: float
           type: number
         balance:
           $ref: '#/components/schemas/Balance'
@@ -1013,7 +1013,7 @@ components:
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         amount:
-          format: double
+          format: float
           type: number
         balance:
           $ref: '#/components/schemas/Balance'
