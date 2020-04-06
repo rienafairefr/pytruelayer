@@ -22,6 +22,12 @@ info:
     x-Orig-Desc-Type: Swagger 2.0
     x-Orig-Desc-Url: https://api.truelayer.com/swagger/v1.0/swagger.json
     x-additionalHostNames: ""
+servers:
+  - description: Sandbox Server
+    url: https://auth.truelayer-sandbox.com
+  - description: Production Server
+    url: https://auth.truelayer.com
+
 components:
   schemas:
     TokenResponse:
