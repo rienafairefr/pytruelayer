@@ -36,8 +36,7 @@ components:
         access_token:
           type: string
         expires_in:
-          type: number
-          format: integer
+          type: integer
         token_type:
           type: string
           default: Bearer
