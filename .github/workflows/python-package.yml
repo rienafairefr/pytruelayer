@@ -96,7 +96,6 @@ jobs:
       run: |
         pipenv run twine upload api/dist/*
 
-
   cleanup_job:
     needs: publish
     if: always()
