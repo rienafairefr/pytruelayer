@@ -253,19 +253,6 @@ paths:
       - oauth2: []
       tags:
       - Data
-  /test:
-    get:
-      deprecated: false
-      operationId: TestGet
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/APIResponseTestResult'
-          description: Success
-      tags:
-      - Test
 components:
   schemas:
     APIResponseAccount:
@@ -580,31 +567,6 @@ components:
         results:
           items:
             $ref: '#/components/schemas/Me'
-          type: array
-        results_uri:
-          type: string
-        status:
-          enum:
-          - Queued
-          - Running
-          - Succeeded
-          - Failed
-          type: string
-        task_id:
-          type: string
-      type: object
-    APIResponseTestResult:
-      example:
-        task_id: task_id
-        results:
-        - ok: true
-        - ok: true
-        results_uri: results_uri
-        status: Queued
-      properties:
-        results:
-          items:
-            $ref: '#/components/schemas/TestResult'
           type: array
         results_uri:
           type: string
@@ -989,13 +951,6 @@ components:
           type: string
         provider_id:
           type: string
-      type: object
-    TestResult:
-      example:
-        ok: true
-      properties:
-        ok:
-          type: boolean
       type: object
     Transaction:
       example:
