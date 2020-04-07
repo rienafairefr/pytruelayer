@@ -12,7 +12,7 @@ api = DefaultApi(api_client)
 
 code = input('code')
 
-token = api.connect_token_post(
+token = api.exchange_code(
     client_id=credentials['client_id'],
     client_secret=credentials['client_secret'],
     redirect_uri=credentials['redirect_uri'],
