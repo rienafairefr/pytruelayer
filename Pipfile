@@ -12,6 +12,7 @@ randomize = ">=0.13"
 pytest = "*"
 pytest-cov = "*"
 setuptools-scm = "*"
+jsonschema = "*"
 
 [dev-packages]
 pytruelayer = {editable = true,path = "./api"}

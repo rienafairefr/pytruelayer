@@ -760,7 +760,7 @@ components:
     CachedAPIResponseObject:
       example:
         error_details:
-          key: '{}'
+          detail_key: "detail_value"
         error_description: error_description
         task_id: task_id
         error: error
@@ -776,8 +776,7 @@ components:
           type: string
         error_details:
           additionalProperties:
-            properties: {}
-            type: object
+            type: string
           type: object
         results:
           items:

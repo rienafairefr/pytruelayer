@@ -3,6 +3,7 @@
 marshmallow.fields.List({{#items}}{{>schema_partial_type}}{{/items}},{{>schema_partial_type_parameters}})
     {{/isListContainer}}
     {{#isMapContainer}}
+marshmallow.fields.Dict(keys=marshmallow.fields.String(), values={{#items}}{{>schema_partial_type}}{{/items}},{{>schema_partial_type_parameters}})
     {{/isMapContainer}}
 {{/isContainer}}
 {{^isContainer}}
