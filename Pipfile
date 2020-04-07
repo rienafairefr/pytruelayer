@@ -13,6 +13,7 @@ pytest = "*"
 pytest-cov = "*"
 setuptools-scm = "*"
 jsonschema = "*"
+coveralls = "*"
 
 [dev-packages]
 pytruelayer = {editable = true,path = "./api"}
