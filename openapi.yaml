@@ -779,8 +779,10 @@ components:
             type: string
           type: object
         results:
+          title: results
           items:
-            properties: {}
+            additionalProperties:
+              type: string
             type: object
           type: array
         results_uri:
