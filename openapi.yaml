@@ -31,7 +31,7 @@ paths:
   /accounts:
     get:
       deprecated: false
-      operationId: DataV1AccountsGet
+      operationId: AccountsGet
       responses:
         "200":
           content:
@@ -46,7 +46,7 @@ paths:
   /accounts/{account_id}:
     get:
       deprecated: false
-      operationId: DataV1AccountsByAccount_idGet
+      operationId: AccountsByAccount_idGet
       parameters:
       - in: path
         name: account_id
@@ -67,7 +67,7 @@ paths:
   /accounts/{account_id}/balance:
     get:
       deprecated: false
-      operationId: DataV1AccountsByAccount_idBalanceGet
+      operationId: AccountsByAccount_idBalanceGet
       parameters:
       - in: path
         name: account_id
@@ -88,7 +88,7 @@ paths:
   /accounts/{account_id}/transactions:
     get:
       deprecated: false
-      operationId: DataV1AccountsByAccount_idTransactionsGet
+      operationId: AccountsByAccount_idTransactionsGet
       parameters:
       - in: path
         name: account_id
@@ -119,7 +119,7 @@ paths:
   /cards:
     get:
       deprecated: false
-      operationId: DataV1CardsGet
+      operationId: CardsGet
       responses:
         "200":
           content:
@@ -134,7 +134,7 @@ paths:
   /cards/{account_id}:
     get:
       deprecated: false
-      operationId: DataV1CardsByAccount_idGet
+      operationId: CardsByAccount_idGet
       parameters:
       - in: path
         name: account_id
@@ -155,7 +155,7 @@ paths:
   /cards/{account_id}/balance:
     get:
       deprecated: false
-      operationId: DataV1CardsByAccount_idBalanceGet
+      operationId: CardsByAccount_idBalanceGet
       parameters:
       - in: path
         name: account_id
@@ -176,7 +176,7 @@ paths:
   /cards/{account_id}/transactions:
     get:
       deprecated: false
-      operationId: DataV1CardsByAccount_idTransactionsGet
+      operationId: CardsByAccount_idTransactionsGet
       parameters:
       - in: path
         name: account_id
@@ -207,7 +207,7 @@ paths:
   /info:
     get:
       deprecated: false
-      operationId: DataV1InfoGet
+      operationId: InfoGet
       responses:
         "200":
           content:
@@ -222,7 +222,7 @@ paths:
   /me:
     get:
       deprecated: false
-      operationId: DataV1MeGet
+      operationId: MeGet
       responses:
         "200":
           content:
@@ -235,7 +235,7 @@ paths:
   /results/{task_id}:
     get:
       deprecated: false
-      operationId: DataV1ResultsByTask_idGet
+      operationId: ResultsByTask_idGet
       parameters:
       - in: path
         name: task_id
