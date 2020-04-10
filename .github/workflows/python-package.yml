@@ -15,7 +15,9 @@ jobs:
       - name: Install dependencies
         run: pipenv install --python 3.5
       - name: generate code
-        run: make api
+        run: (make api | tee generate-stdout.log) 3>&1 1>&2 2>&3  3>&- | tee generate-stderr.log
+      - name: verify no stderr
+        run: "[ ! -s generate-stderr.log ]"
       - uses: actions/upload-artifact@master
         with:
           name: generated-api
