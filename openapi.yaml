@@ -230,6 +230,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/APIResponseMe'
           description: Success
+      security:
+        - oauth2: []
       tags:
       - Data
   /results/{task_id}:

@@ -42,9 +42,52 @@ components:
           default: Bearer
         refresh_token:
           type: string
+        expires_at:
+          type: string
+          format: date-time
+      required:
+        - access_token
+        - expires_in
+        - token_type
+    Provider:
+      type: object
+      properties:
+        country:
+          type: string
+        display_name:
+          type: string
+        logo_url:
+          type: string
+        provider_id:
+          type: string
+        scopes:
+          type: array
+          items:
+            type: string
+
 paths:
+  /api/providers:
+    get:
+      tags:
+        - Auth
+      operationId: getProviders
+      parameters:
+        - name: clientId
+          in: query
+      responses:
+        200:
+          description: get providers response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Provider'
+
   /connect/token:
     post:
+      tags:
+        - Auth
       operationId: exchangeCode
       responses:
         "200":
@@ -69,11 +112,15 @@ paths:
                 grant_type:
                   type: string
                   default: authorization_code
+                  enum:
+                    - authorization_code
+                    - refresh_token
                 code_verifier:
+                  type: string
+                refresh_token:
                   type: string
               required:
                 - client_id
                 - client_secret
                 - redirect_uri
-                - code
                 - grant_type
