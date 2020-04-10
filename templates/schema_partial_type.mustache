@@ -34,12 +34,12 @@ marshmallow.fields.Boolean({{>schema_partial_type_parameters}})
     {{^isBoolean}}
     {{/isBoolean}}
     {{#isDate}}
-{{packageName}}.fields.Date({{>schema_partial_type_parameters}})
+fields.Date({{>schema_partial_type_parameters}})
     {{/isDate}}
     {{^isDate}}
     {{/isDate}}
     {{#isDateTime}}
-{{packageName}}.fields.DateTime({{>schema_partial_type_parameters}})
+fields.DateTime({{>schema_partial_type_parameters}})
     {{/isDateTime}}
     {{^isDateTime}}
     {{/isDateTime}}
@@ -49,10 +49,10 @@ marshmallow.fields.Boolean({{>schema_partial_type_parameters}})
 marshmallow.fields.Dict({{>schema_partial_type_parameters}})
     {{/isFreeFormObject}}
     {{#isModel}}
-{{packageName}}.fields.Nested('{{dataType}}')('{{dataType}}Schema', {{>schema_partial_type_parameters}})
+fields.Nested('{{dataType}}')('{{dataType}}Schema', {{>schema_partial_type_parameters}})
     {{/isModel}}
     {{#isSelfReference}}
-{{packageName}}.fields.{{dataType}}Nested('self', {{>schema_partial_type_parameters}})
+fields.{{dataType}}Nested('self', {{>schema_partial_type_parameters}})
     {{/isSelfReference}}
 {{/isPrimitiveType}}
 {{/isContainer}}
