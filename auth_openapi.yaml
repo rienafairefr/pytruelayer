@@ -74,6 +74,9 @@ paths:
       parameters:
         - name: clientId
           in: query
+          description: the client ID to get providers specific to client, e.g. beta providers
+          schema:
+            type: string
       responses:
         200:
           description: get providers response
