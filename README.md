@@ -1,4 +1,5 @@
 ![](https://github.com/rienafairefr/pytruelayer/workflows/Python%20package/badge.svg)
+[![PyPI version](https://badge.fury.io/py/pytruelayer.svg)](https://badge.fury.io/py/pytruelayer)
 [![Coverage Status](https://coveralls.io/repos/github/rienafairefr/pytruelayer/badge.svg?branch=master)](https://coveralls.io/github/rienafairefr/pytruelayer?branch=master)
 
 # pytruelayer
