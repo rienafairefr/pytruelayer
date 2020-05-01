@@ -66,6 +66,16 @@ components:
             type: string
 
 paths:
+  /api/delete:
+    delete:
+      operationId: apiDelete
+      responses:
+        200:
+          description: empty body
+      security:
+        - oauth2: []
+      tags:
+        - Data
   /api/providers:
     get:
       tags:
