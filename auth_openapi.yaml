@@ -69,6 +69,9 @@ paths:
   /api/delete:
     delete:
       operationId: apiDelete
+      responses:
+        200:
+          description: empty body
       security:
         - oauth2: []
       tags:
