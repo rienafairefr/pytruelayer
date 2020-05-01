@@ -204,6 +204,13 @@ paths:
       - oauth2: []
       tags:
       - Data
+  /api/delete:
+    delete:
+      operationId: apiDelete
+      security:
+        - oauth2: []
+      tags:
+        - Data
   /info:
     get:
       deprecated: false
