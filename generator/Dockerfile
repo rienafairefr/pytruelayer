@@ -1,4 +1,4 @@
-FROM jimschubert/8-jdk-alpine-mvn:1.0 as build
+FROM jimschubert/8-jdk-alpine-mvn:2.0 as build
 
 COPY pom.xml .
 
