@@ -8,7 +8,7 @@ COPY src /src
 
 RUN mvn package
 
-FROM openapitools/openapi-generator-cli:v4.2.3
+FROM openapitools/openapi-generator-cli:v7.10.0
 
 COPY --from=build /target/customcodegen-openapi-generator-1.0.0.jar customcodegen.jar
 
